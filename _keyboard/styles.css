@@ -1,0 +1,187 @@
+html, body {
+    height: 100%;
+    font-family: "Segoe UI", "Arial", "Helvetica", sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default
+}
+
+#keyboard-bg {
+    height: 348.3px;
+    width: 1212.3px;
+    background-color: #eeeeee;
+    border-radius: 6px;
+    padding: 15px;
+    border: solid 1px #ddd;
+    border-top: none;
+    border-bottom: solid 3px #ccc;
+}
+
+#keyboard-bg div {
+    position: absolute;
+    box-sizing: border-box;
+    background-clip: padding-box
+}
+
+.keylabel > div {
+    display: table-cell;
+    position: static !important
+}
+
+.keylabel0 > div, .keylabel1 > div, .keylabel2 > div {
+    vertical-align: top
+}
+
+.keylabel3 > div, .keylabel4 > div, .keylabel5 > div {
+    vertical-align: middle
+}
+
+.keylabel6 > div, .keylabel7 > div, .keylabel8 > div {
+    vertical-align: bottom
+}
+
+.keylabel9, .keylabel10, .keylabel11 {
+    top: 100%;
+    margin-top: -1px;
+    font-size: 10px !important;
+    max-height: 1em !important;
+    white-space: nowrap;
+    overflow: hidden
+}
+
+.keylabel0 > div, .keylabel3 > div, .keylabel6 > div, .keylabel9 > div {
+    text-align: left
+}
+
+.keylabel1 > div, .keylabel4 > div, .keylabel7 > div, .keylabel10 > div {
+    text-align: center
+}
+
+.keylabel2 > div, .keylabel5 > div, .keylabel8 > div, .keylabel11 > div {
+    text-align: right
+}
+
+.keylabel.textsize1 {
+    font-size: 8px;
+    line-height: 1em
+}
+
+.keylabel.textsize2 {
+    font-size: 10px;
+    line-height: 1em
+}
+
+.keylabel.textsize3 {
+    font-size: 12px;
+    line-height: 1em
+}
+
+.keylabel.textsize4 {
+    font-size: 14px;
+    line-height: 1em
+}
+
+.keylabel.textsize5 {
+    font-size: 16px;
+    line-height: 1em
+}
+
+.keylabel.textsize6 {
+    font-size: 18px;
+    line-height: 1em
+}
+
+.keylabel.textsize7 {
+    font-size: 20px;
+    line-height: 1em
+}
+
+.keylabel.textsize8 {
+    font-size: 22px;
+    line-height: 1em
+}
+
+.keylabel.textsize9 {
+    font-size: 24px;
+    line-height: 1em
+}
+
+.keylabels {
+    font-family: "Helvetica", "Arial", sans-serif;
+    margin: 4px 0 0 3px;
+}
+
+.keylabel hr {
+    display: inline
+}
+
+.keylabel hr:before {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    content: "\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500"
+}
+
+.keylabel.service {
+    color: #e7e7e7;
+    width: 33.3px;
+    height: 33.3px;
+}
+
+.keyborder {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #bbb;
+    border-radius: 5px;
+    background-color: #ddd;
+}
+
+.keyborder.regular {
+    width: 51.3px;
+    height: 51.3px;
+}
+
+.keytop {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin: -3px 0 0 -6px;
+    border-radius: 6px;
+}
+
+.keytop.regular {
+    width: 51px;
+    height: 48px;
+}
+
+.keylabel.regular {
+    width: 39.3px;
+    height: 39.3px;
+    padding: 3px;
+}
+
+.keylabel.service {
+    color: #bbb;
+    width: 33.3px;
+    height: 33.3px;
+}
+
+.keytext {
+    width: 33.3px;
+    max-width: 33.3px;
+    height: 33.3px;
+    font-size: 16px;
+}
+
+.keylabel.service .keytext {
+    font-size: 12px;
+}
+
+.keylabel2 .keytext, .keylabel8 .keytext {
+    color: red;
+}

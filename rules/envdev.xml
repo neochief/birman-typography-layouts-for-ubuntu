@@ -1,0 +1,30 @@
+<!--typo-birman-start-->
+    <layout>
+      <configItem>
+        <name>typo-birman-ru</name>
+        <shortDescription>Russian (Typographic by Ilya Birman)</shortDescription>
+        <description>Russian (Typographic by Ilya Birman)</description>
+        <languageList>
+          <iso639Id>rus</iso639Id>
+        </languageList>
+        <countryList>
+          <iso3166Id>RU</iso3166Id>
+        </countryList>
+      </configItem>
+      <variantList/>
+    </layout>
+    <layout>
+      <configItem>
+        <name>typo-birman-en</name>
+        <shortDescription>English (Typographic by Ilya Birman)</shortDescription>
+        <description>English (Typographic by Ilya Birman)</description>
+        <languageList>
+          <iso639Id>eng</iso639Id>
+        </languageList>
+        <countryList>
+          <iso3166Id>US</iso3166Id>
+        </countryList>
+      </configItem>
+      <variantList/>
+    </layout>
+<!--typo-birman-end-->
