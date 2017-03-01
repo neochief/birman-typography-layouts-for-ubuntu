@@ -27,10 +27,10 @@ echo -e "\e[32mDone! Please log out and log in again to activate the new keyboar
 echo
 # Set input switching to Shift+Alt (like in Windows)
 read -r -p "By the way, do you want to toggle keyboard layouts with Shift+Alt? (default=yes)" response
+echo
 response=${response,,}
 if [[ $response =~ ^(yes|y| ) ]] | [ -z $response ]; then
     gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
     gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
 fi
-
 
