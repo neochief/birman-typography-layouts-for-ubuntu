@@ -12,10 +12,12 @@
 
 ## Установка
 
-1. Скачайте и распакуйте [содержимое этого репозитория](https://github.com/neochief/birman-typography-layouts-for-ubuntu/archive/master.tar.gz).
-2. Зайдите в полученный каталог.
-3. Запустите `sudo ./install.sh`
+Откройте терминал и выполните эту команду:
 
-Эта команда установит и включит обе раскладки в системе, а также активирует клавишу альтернативных символов (правый Alt).
+```
+sudo apt-get -qq -y install wget & wget -O /tmp/tbm.tar.gz https://github.com/neochief/birman-typography-layouts-for-ubuntu/archive/master.tar.gz & tar xvf /tmp/tbm.tar.gz -C /tmp & /tmp/birman-typography-layouts-for-ubuntu-master/install.sh
+```
+
+Эта команда установит и включит обе раскладки в системе, активирует клавишу альтернативных символов (правый Alt), а также установит переключение раскладок через Alt+Shift.
 
 **Обязательно перелогиньтесь после установки.**

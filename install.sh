@@ -1,12 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ $(id -u) -ne 0 ]
-  then echo "Please run as root"
-  exit
-fi
+BASE=$(dirname "$0")
 
-sudo rm /usr/share/X11/xkb/symbols/typo-birman-*
-sudo cp symbols/* /usr/share/X11/xkb/symbols/
+sudo rm -f /usr/share/X11/xkb/symbols/typo-birman-*
+sudo cp $BASE/symbols/* /usr/share/X11/xkb/symbols/
 
 # Edit /usr/share/X11/xkb/rules/evdev.lst
 
@@ -15,7 +12,7 @@ sudo sed -i -E 's/(! layout)/\1\n  typo-birman-en         English (Typographic b
 
 # Edit /usr/share/X11/xkb/rules/evdev.xml
 
-sudo awk '/<\/layoutList>/ { system ( "cat ./rules/envdev.xml" ) } { print; }' /usr/share/X11/xkb/rules/evdev.xml >> /tmp/evdev.xml
+sudo awk "/<\/layoutList>/ { system ( \"cat $BASE/rules/envdev.xml\" ) } { print; }" /usr/share/X11/xkb/rules/evdev.xml >> /tmp/evdev.xml
 sudo rm /usr/share/X11/xkb/rules/evdev.xml
 sudo mv /tmp/evdev.xml /usr/share/X11/xkb/rules/evdev.xml
 
@@ -26,4 +23,14 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['lv3:ralt_switch']"
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'typo-birman-en'), ('xkb', 'typo-birman-ru')]"
 
 # Show further instructions
-echo "Please log out and log in again to activate the new keyboard layouts."
+echo -e "\e[32mDone! Please log out and log in again to activate the new keyboard layouts.\e[0m"
+echo
+# Set input switching to Shift+Alt (like in Windows)
+read -r -p "By the way, do you want to toggle keyboard layouts with Shift+Alt? (default=yes)" response
+response=${response,,}
+if [[ $response =~ ^(yes|y| ) ]] | [ -z $response ]; then
+    gsettings set org.gnome.desktop.wm.keybindings switch-input-source "['<Shift>Alt_L']"
+    gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Alt>Shift_L']"
+fi
+
+
