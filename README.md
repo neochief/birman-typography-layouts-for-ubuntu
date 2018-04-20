@@ -2,7 +2,7 @@
 
 Этот репозиторий содержит адаптацию русской и английской [типографской раскладки Ильи Бирмана](http://ilyabirman.ru/projects/typography-layout/) версии 3.4 для Ubuntu.
 
-Раскладки протестированы в Ubuntu 16.04.
+Раскладки протестированы в Ubuntu 18.04.
 
 ![Снимок экрана](_keyboard/snapshot.png)
 
@@ -18,9 +18,9 @@
 
     ```
     sudo apt-get -qq -y install wget && \
-    wget -q -O /tmp/typo-birman-master.tar.gz https://github.com/neochief/birman-typography-layouts-for-ubuntu/archive/master.tar.gz && \
+    wget -q -O /tmp/typo-birman-master.tar.gz https://github.com/vanushah/birman-typography-layouts-for-ubuntu/releases/download/v1.0/birman-typography-layouts-for-ubuntu-v1.0.tgz && \
     tar xf /tmp/typo-birman-master.tar.gz -C /tmp && \
-    /tmp/birman-typography-layouts-for-ubuntu-master/install.sh
+    /tmp/birman-typography-layouts-for-ubuntu/install.sh
     /
     ```
 
