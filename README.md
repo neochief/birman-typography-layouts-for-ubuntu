@@ -20,7 +20,8 @@
     sudo apt-get -qq -y install wget && \
     wget -q -O /tmp/typo-birman-master.tar.gz https://github.com/vanushah/birman-typography-layouts-for-ubuntu/releases/download/v1.0/birman-typography-layouts-for-ubuntu-v1.0.tgz && \
     tar xf /tmp/typo-birman-master.tar.gz -C /tmp && \
-    /tmp/birman-typography-layouts-for-ubuntu/install.sh
+    cd /tmp/birman-typography-layouts-for-ubuntu && \
+    sudo /tmp/birman-typography-layouts-for-ubuntu/install.sh
     /
     ```
 
