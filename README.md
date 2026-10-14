@@ -14,20 +14,22 @@
 
 ## Установка
 
-1. Скопируйте команду приведенную ниже, включая последний слэш:
+1. Скопируйте команду приведенную ниже:
 
     ```
     sudo apt-get -qq -y install wget && \
-    wget -q -O /tmp/typo-birman-master.tar.gz https://github.com/vanushah/birman-typography-layouts-for-ubuntu/releases/download/v1.0/birman-typography-layouts-for-ubuntu-v1.0.tgz && \
+    wget -q -O /tmp/typo-birman-master.tar.gz https://github.com/neochief/birman-typography-layouts-for-ubuntu/archive/refs/heads/master.tar.gz && \
     tar xf /tmp/typo-birman-master.tar.gz -C /tmp && \
-    cd /tmp/birman-typography-layouts-for-ubuntu && \
-    sudo /tmp/birman-typography-layouts-for-ubuntu/install.sh
-    /
+    /tmp/birman-typography-layouts-for-ubuntu-master/install.sh
     ```
 
 2. Откройте терминал (Ctrl+Alt+T), вставьте команду и нажмите клавишу Enter.
 
     Эта команда установит и включит обе раскладки в системе, активирует клавишу альтернативных символов (правый Alt), а также (опционально) установит переключение раскладок через Alt+Shift.
+
+    Запускайте `install.sh` от обычного пользователя в своей графической сессии, **без `sudo` перед скриптом**. Для изменения системных файлов скрипт сам запросит права через `sudo`, а пользовательские настройки GNOME (`gsettings`) должны применяться к вашему профилю. Запуск всего скрипта через `sudo` может установить файлы раскладок, не включив их в вашем профиле.
+
+    При включении правого Alt существующие XKB options сохраняются, включая настройку переключения раскладок.
 
 3. Дождитесь зелёного сообщения об успехе. В процессе установки может потребоваться ввод пароля.
 

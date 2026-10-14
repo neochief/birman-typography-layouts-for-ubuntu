@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ "$(id -u)" -eq 0 ]; then
+    echo "Run this installer as your desktop user, without sudo." >&2
+    echo "It will request sudo when modifying system files." >&2
+    exit 1
+fi
+
 BASE=$(dirname "$0")
 
 out=$(grep -e "typo-birman-en" /usr/share/X11/xkb/symbols/us)
@@ -21,8 +27,21 @@ sudo "$BASE/helper/xmladd.py" /usr/share/X11/xkb/rules/evdev.xml "$BASE/rules/va
 sudo rm /usr/share/X11/xkb/rules/evdev.xml
 sudo mv /tmp/evdev.xml /usr/share/X11/xkb/rules/evdev.xml
 
-# Enable AltGr
-gsettings set org.gnome.desktop.input-sources xkb-options "['lv3:ralt_switch']"
+# Enable AltGr without replacing the user's existing XKB options.
+python3 - <<'PY' || exit 1
+import ast
+import subprocess
+
+schema = 'org.gnome.desktop.input-sources'
+value = subprocess.check_output(
+    ['gsettings', 'get', schema, 'xkb-options'], universal_newlines=True
+).strip()
+# GSettings prints an explicit type annotation for an empty string array.
+options = ast.literal_eval(value[4:] if value.startswith('@as ') else value)
+if 'lv3:ralt_switch' not in options:
+    options.append('lv3:ralt_switch')
+    subprocess.check_call(['gsettings', 'set', schema, 'xkb-options', repr(options)])
+PY
 
 # Enable keyboard layouts
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+typo-birman-en'), ('xkb', 'ru+typo-birman-ru')]"
